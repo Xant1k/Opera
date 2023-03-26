@@ -1,0 +1,25 @@
+{
+  "name": "Window Name Eraser",
+  "version": "2",
+  "description": "An extension preventing user-tracking methods (e.g. evercookie) from transmitting data through the window.name property.",
+  "icons": { "16": "icons/16.png",
+           "48": "icons/48.png",
+          "128": "icons/128.png" },
+  "minimum_chrome_version": "6.0",
+  "manifest_version": 2,
+  "options_page": "html/options.html",
+  "page_action": {
+    "default_icon": "icons/16.png",
+    "default_title": "window.name has been erased!"
+  },
+  "background": {
+    "scripts": ["js/background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["js/cs2.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
